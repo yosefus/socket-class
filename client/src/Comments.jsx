@@ -1,7 +1,8 @@
+import useSocket from "./socket"
 
 const Comments = ({ comments, user }) => {
    const className = (comment) => user.id === comment.user?.id ? 'user' : comment.user?.type === 'admin' ? 'admin' : ''
- 
+  
    return (
      <ul className="comments">
        {comments.map(comment => <li className={className(comment)} key={comment.text}>

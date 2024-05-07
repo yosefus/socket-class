@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Admin from "./Admin"
 import Layout from "./Layout"
 import User from "./User"
 import { users } from "./users"
+import { SocketProvider } from "./socket"
 
 const checkComments = [
   { user: { id: '1', icon: '😘', type: 'user' }, text: 'comment 1' },
@@ -15,6 +16,7 @@ export default function App() {
   const [user, setUser] = useState(users[Math.floor(Math.random() * users.length)])
 
   const currentAdmin = { id: '3', icon: '🤴', type: 'admin' }
+
 
   const addComment = (comment, user) => setComments(old => [...old, { text: comment, user }])
 
@@ -28,5 +30,5 @@ export default function App() {
   ])
 
 
-  return (<RouterProvider router={router} />)
+  return (<SocketProvider> <RouterProvider router={router} /></SocketProvider> )
 }
