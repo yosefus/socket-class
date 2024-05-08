@@ -10,7 +10,7 @@ const checkComments = [
   { user: { id: '3', icon: '🤴', type: 'admin' }, text: 'comment 2' },
 ]
 export default function App() {
-  const [comments, setComments] = useState(checkComments)
+  const [comments, setComments] = useState([] ||checkComments)
   const [roomId, setRoomId] = useState(null)
   const [user, setUser] = useState(users[Math.floor(Math.random() * users.length)])
 
